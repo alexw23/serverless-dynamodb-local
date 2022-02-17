@@ -204,7 +204,8 @@ class ServerlessDynamodbLocal {
 
     migrateHandler() {
         if (this.shouldExecute()) {
-            const dynamodb = this.dynamodbOptions();
+            const options = this.options;
+            const dynamodb = this.dynamodbOptions(options);
             const tables = this.tables;
             return BbPromise.each(tables, (table) => this.createTable(dynamodb, table));
         } else {
