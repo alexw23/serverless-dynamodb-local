@@ -190,8 +190,8 @@ class ServerlessDynamodbLocal {
             dynamoOptions = {
                 endpoint: `http://${this.host}:${this.port}`,
                 region: "localhost",
-                accessKeyId: "MOCK_ACCESS_KEY_ID",
-                secretAccessKey: "MOCK_SECRET_ACCESS_KEY",
+                accessKeyId: options && options.accessKeyId ? options.accessKeyId : "MOCK_ACCESS_KEY_ID",
+                secretAccessKey: options && options.secretAccessKey ? options.secretAccessKey : "MOCK_SECRET_ACCESS_KEY",
                 convertEmptyValues: options && options.convertEmptyValues ? options.convertEmptyValues : false,
             };
         }
